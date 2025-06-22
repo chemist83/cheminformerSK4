@@ -1,0 +1,81 @@
+body {
+
+            color: white;
+
+            font-family: Arial, sans-serif;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            height: 100vh;
+
+            margin: 0;
+
+            flex-direction: column;
+
+            background-image: url("https://cdn.glitch.global/bd2c9245-6fd2-43d5-aa9b-2d4526abf207/mrbeast-fortnite_bW1pbm2UmZqaraWkpJRmbmdlrWZlbWU.jpg?v=1737056876296"); /* Buraya resim yolunu ekleyin */
+
+            background-size: cover; /* Resmin tamamını kapsaması için */
+
+            background-position: center; /* Ortalamak için */
+
+            background-repeat: no-repeat; /* Tekrar etmesini engellemek için */
+
+        }
+
+        .progress-container {
+
+            width: 80%;
+
+            max-width: 500px;
+
+            height: 30px;
+
+            background-color: #f3f3f3;
+
+            border-radius: 15px;
+
+            border: 1px solid #ccc;
+
+        }
+
+        .progress-bar {
+
+            height: 100%;
+
+            width: 0%;
+
+            background-color: #4caf50;
+
+            border-radius: 15px;
+
+        }
+
+        .message {
+
+            margin-top: 20px;
+
+            display: none;
+
+            font-size: 18px;
+
+            color: white;
+
+        }
+
+        .status {
+
+            font-size: 20px;
+
+            margin-top: 20px;
+
+            font-weight: bold;
+
+             color: white
+
+        }
+
+        
