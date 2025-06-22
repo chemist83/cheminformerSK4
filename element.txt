@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+
+<html lang="tr">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <title>Periyodik Tablo Arama</title>
+
+  <style>
+
+    body { font-family: Arial; padding: 20px; }
+
+    input { padding: 10px; width: 300px; }
+
+    #result { margin-top: 20px; }
+
+    .element-name { font-weight: bold; font-size: 24px; }
+
+    .element-info { margin-top: 10px; }
+
+    .chemical-equations { margin-top: 15px; }
+
+    .equation { margin-bottom: 5px; font-family: monospace; }
+    body {
+
+  background-image: url('https://cdn.glitch.global/dd4185ab-d45c-4311-b9ba-a9f76fde757d/file_00000000afac6246affb5710916456f8_conversation_id%3D67fd4869-3714-8009-ba78-357bb1e99b5d%26message_id%3D5ff359a0-a402-4490-83a1-7f49351d3272.png?v=1744656065235'); /* Arka plan resmi */
+
+  background-size: cover; /* Resmi ekran boyutuna göre ayarlama */
+
+  background-position: center center; /* Resmin ortalanması */
+
+  background-repeat: no-repeat; /* Resmin tekrarlanmaması */
+body {
+
+  color: white; /* Tüm yazıları beyaz yapar */
+
+}
+}
+
+  </style>
+
+</head>
+
+<body>
+<img src="https://cdn.glitch.global/dd4185ab-d45c-4311-b9ba-a9f76fde757d/Colour_18-col_PT_with_labels.png?v=1744547633473" alt="Description" width="500" height="300">
+  <h1>Search any elements</h1>
+<a href="index.html" target="_blank">Main Menu</a>
+  <input type="text" id="search" placeholder="Write element name (sample: lithium)">
+
+  <div id="result"></div>
+
+  <script>
+
+    const elements = {
+
+      lithium: {
+
+        name: "Lithium",
+
+        info: "Lithium is a soft, silvery-white metal. It is used in batteries and reacts vigorously with water.",
+
+        image: ["https://cdn.glitch.global/dd4185ab-d45c-4311-b9ba-a9f76fde757d/lithium-metal-1677500766-6755745.jpeg?v=1744545685541","https://cdn.glitch.global/dd4185ab-d45c-4311-b9ba-a9f76fde757d/Ba%C5%9Fl%C4%B1ks%C4%B1z37_20250413185230.png?v=1744559604243"],
+
+        reactions: [
+
+          "2Li + 2H₂O → 2LiOH + H₂",
+
+          "4Li + O₂ → 2Li₂O",
+
+          "2Li + Cl₂ → 2LiCl",
+
+          "6Li + N₂ → 2Li₃N",
+
+          "2Li + 2HCl → 2LiCl + H₂"
+
+        ]
+
+      },
+
+      oxygen: {
+
+        name: "Oxygen",
+
+        info: "Oxygen is essential for respiration and combustion. Atomic number 8.",
+
+        image: "",
+
+        reactions: [
+
+          "2H₂ + O₂ → 2H₂O",
+
+          "C + O₂ → CO₂",
+
+          "2CO + O₂ → 2CO₂",
+
+          "4Fe + 3O₂ → 2Fe₂O₃",
+
+          "2Mg + O₂ → 2MgO"
+
+        ],
+        image: "https://cdn.glitch.global/dd4185ab-d45c-4311-b9ba-a9f76fde757d/Oxygen_Large%20(1).jpg?v=1744551791730"
+      },
+      calcium: {
+
+        name: "Calcium",
+
+        info: "Calcium is alkali soil metal in  2.group of periodic table. The one of the minerals that exist mostly and especially. It exist in bones and teeth. Also It roles in biologic function like transmiting signal,  muscle and blood clotting etc.",
+
+        image: ["https://cdn.glitch.global/dd4185ab-d45c-4311-b9ba-a9f76fde757d/Calcium_unter_Argon_Schutzgasatmosph%C3%A4re.jpg?v=1744557389521","https://cdn.glitch.global/dd4185ab-d45c-4311-b9ba-a9f76fde757d/Ba%C5%9Fl%C4%B1ks%C4%B1z38_20250413180528.png?v=1744558153870"],
+
+        reactions: [
+
+          "2H₂ + O₂ → 2H₂O",
+
+          "C + O₂ → CO₂",
+
+          "2CO + O₂ → 2CO₂",
+
+          "4Fe + 3O₂ → 2Fe₂O₃",
+
+          "2Mg + O₂ → 2MgO"
+
+        ]
+    },
+        
+       helium: {
+
+        name: "Helium",
+
+        info: "Helium's atom number is 2 and it is colorless gas. It is second plentiest of universe. It uses for; 1.balloons and air vehicles: It can't explode easily which prefers it. 2.Cool down; It uses in MRI machines and space technologies 3.Helium-3: It is important isotope in nuclear fusion",
+
+        image: "https://cdn.glitch.global/dd4185ab-d45c-4311-b9ba-a9f76fde757d/Ba%C5%9Fl%C4%B1ks%C4%B1z36_20250413173845.png?v=1744564201468",
+
+        reactions: [
+
+          "2H₂ + O₂ → 2H₂O",
+
+          "C + O₂ → CO₂",
+
+          "2CO + O₂ → 2CO₂",
+
+          "4Fe + 3O₂ → 2Fe₂O₃",
+
+          "2Mg + O₂ → 2MgO"
+
+        ],
+       },          
+
+       sulfur: {
+
+        name: "Sulfur",
+
+        info: "Sulfur's atom number in periodic table is 16. It is ametal element. Its sign is S. It is yellow and it exist in solid form and In nature, it usually takes place in compounds such as sulphate and sulfurs and in industry. It is used for fertilizer , gunpowder, medicine and rubber commonly",
+
+        image: ["https://cdn.glitch.global/dd4185ab-d45c-4311-b9ba-a9f76fde757d/Ba%C5%9Fl%C4%B1ks%C4%B1z38_20250413232036.png?v=1744575649779","https://cdn.glitch.global/dd4185ab-d45c-4311-b9ba-a9f76fde757d/Screen-Shot-2021-01-09-at-2.00.17-PM.png?v=1744575556153"],
+
+        reactions: [
+
+          "2H₂ + O₂ → 2H₂O",
+
+          "C + O₂ → CO₂",
+
+          "2CO + O₂ → 2CO₂",
+
+          "4Fe + 3O₂ → 2Fe₂O₃",
+
+          "2Mg + O₂ → 2MgO"
+
+        ]
+      },
+           sodium: {
+
+        name: "Sodium",
+
+        info: ["Sodium is in 1.group of periodic table and it belongs to alkaline metals familiar. Atomic number is 11 and its symbol is Na. Sodium usually exists in salts form. It It is plent amount in sea salt and salty water. Usage Field: Chemistry: Sodium compounds, particularly sodium chlorine is used in a lot of fields of industry Medicines(Pills): It is used for pills, particularly to balance sodium levels in body",
+   "**Atomic Number:** 11",
+
+"**Electronegativity:** 0.93 (on the Pauling scale)",
+
+"**Atomic Mass:** 22.99 u (atomic mass units)"],
+       
+             image: ["https://cdn.glitch.global/dd4185ab-d45c-4311-b9ba-a9f76fde757d/Na_(Sodium).jpg?v=1744650551449","https://cdn.glitch.global/dd4185ab-d45c-4311-b9ba-a9f76fde757d/Ba%C5%9Fl%C4%B1ks%C4%B1z38_20250414201048.png?v=1744650723493"],
+
+        reactions: [
+
+          "2Na + 2H2O → 2NaOH + H2",
+
+"4Na + O2 → 2Na2O",
+
+"2Na + Cl2 → 2NaCl",
+
+"Na + S → Na2S",
+
+"3Na + N2 → Na3N",
+
+"2NaOH + CO2 → Na2CO3 + H2O",
+
+"3NaOH + Cl2 → NaClO3 + H2O",
+
+"Na + NH3 → NaNH2 + H2",
+
+"Na2S + O2 → Na2SO4",
+
+"Na2CO3 + 2HCl → 2NaCl + CO2 + H2O",
+
+"2Na + 2H2O → 2NaOH + H2",
+
+"2Na + Cl2 → 2NaCl",
+
+"NaOH + Cl2 → NaClO + NaCl + H2O",
+
+"Na + 2H2O → 2NaOH + H2",
+
+"NaCl + H2SO4 → NaHSO4 + HCl",
+
+"3Na + AlCl3 → NaCl + Al",
+
+"2Na + CuSO4 → Na2SO4 + Cu",
+
+"2Na + 2H2O → 2NaOH + H2",
+
+"2NaOH + CO2 → Na2CO3 + H2O",
+
+"NaCl + H2SO4 → NaHSO4 + HCl"
+
+        ]
+             },
+         carbon: {
+
+        name: "Carbon",
+
+        info: "Atomic number of carbon is 6. It is the building block of organic compounds and it is fundamental element of life. Carbon has allotropes such as graphit and diamond. Also it is in such as CO2 and CO gases and organic compounds structure. Electronegativity: 2.55.  Atomic mass: 12.01 u   Atomic number: 6",
+
+        image: ["https://cdn.glitch.global/dd4185ab-d45c-4311-b9ba-a9f76fde757d/iStock-182440255-scaled.jpg?v=1744654102945","https://cdn.glitch.global/dd4185ab-d45c-4311-b9ba-a9f76fde757d/Ba%C5%9Fl%C4%B1ks%C4%B1z42_20250414204029.png?v=1744654017726"],
+
+        reactions: [
+
+          "CH4 + 2 O2 → CO2 + 2 H2O",
+
+"C2H6 + 3.5 O2 → 2 CO2 + 3 H2O",
+
+"C + O2 → CO2",
+
+"2 C + O2 → 2 CO",
+
+"CO + 2 H2 → CH3OH",
+
+"C2H5OH →[H2SO4] C2H4 + H2O",
+
+"CH3CHO + O2 → CH3COOH",
+
+"C3H8 + 5 O2 → 3 CO2 + 4 H2O",
+
+"2 C + H2 → C2H2",
+
+"CH4 + O2 → CH2O + H2O",
+
+"C2H5OH + 3 O2 → 2 CO2 + 3 H2O",
+
+"C2H4 + H2 →[Ni] C2H6",
+
+"CH4 + Cl2 → CH3Cl + HCl",
+
+"C6H5CH3 + CH3Cl →[AlCl3] C6H4(CH3)2 + HCl",
+
+"CaO + CO2 → CaCO3",
+
+"CaCO3 →[heat] CaO + CO2",
+
+"Na + C2H5OH → C2H5ONa + ½ H2",
+
+"C6H6 + O2 → CO2 + H2O",
+
+"CH3COOH + NaOH → CH3COONa + H2O",
+
+"C2H4 + O2 → C2H4O2"
+
+        ]
+
+      }
+      
+      // Daha fazla element buraya eklenebilir
+
+    };
+
+    document.getElementById("search").addEventListener("input", function () {
+
+      const query = this.value.toLowerCase().trim();
+
+      const resultDiv = document.getElementById("result");
+
+       if (elements[query]) {
+
+      const el = elements[query];
+
+      let reactionHtml = '';
+
+      if (el.reactions) {
+
+        reactionHtml = '<div class="chemical-equations">';
+
+        el.reactions.forEach(reaction => {
+
+          reactionHtml += `<div class="equation">${reaction}</div>`;
+
+        });
+
+        reactionHtml += '</div>';
+
+      }
+
+      let imageHtml = '';
+
+      if (el.image) {
+
+        if (Array.isArray(el.image)) {
+
+          imageHtml = el.image.map(img => `<img src="${img}" alt="${el.name}" style="margin-top:10px; max-width:300px;">`).join('');
+
+        } else {
+
+          imageHtml = `<img src="${el.image}" alt="${el.name}" style="margin-top:10px; max-width:300px;">`;
+
+        }
+
+      }
+
+      resultDiv.innerHTML = `
+
+        <div class="element-name">${el.name}</div>
+
+        <div class="element-info">${el.info}</div>
+
+        ${reactionHtml}
+
+        ${imageHtml}
+
+      `;
+
+    } else {
+
+      resultDiv.innerHTML = query ? "<i>The element wasn't found.</i>" : "";
+
+    }
+
+  });
+
+  </script>
+
+</body>
+
+  </html>
